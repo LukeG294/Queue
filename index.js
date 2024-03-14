@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const firebase = require('firebase/app');
-require('firebase/firestore');
+const firebase = require("firebase");
+// Required for side-effects
+require("firebase/firestore");
 
 const app = express();
 const port = 3000;
