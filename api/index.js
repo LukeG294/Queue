@@ -6,7 +6,7 @@ const app = express();
 const port = 3000;
 
 // Initialize Firebase Admin SDK
-const serviceAccount = require('./serviceAccountKey.json'); // Path to your service account key JSON file
+const serviceAccount = require('../serviceAccountKey.json'); // Path to your service account key JSON file
 firebaseAdmin.initializeApp({
   credential: firebaseAdmin.credential.cert(serviceAccount),
   databaseURL: 'https://your-project-id.firebaseio.com' // Replace with your Firebase project URL
@@ -14,7 +14,7 @@ firebaseAdmin.initializeApp({
 
 const db = firebaseAdmin.firestore();
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json()); app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Serve HTML page for adding name to the queue
